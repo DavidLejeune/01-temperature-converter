@@ -40,11 +40,11 @@ class Converter
     elsif @textc != ""
       @textf.value = (9.0/5.0) * @textc + 32.0
       @textk.value = @textc+ 273.15
-    elseif @textk != ""
+    elsif @textk != ""
       @textc.value = @textk - 273.15
       @textf.value = (9.0/5.0) * @textc + 32.0
     end
-    
+
   end
 
 end
