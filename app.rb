@@ -16,7 +16,6 @@ puts temp_converter.to_html
 puts temp_converter.to_json
 puts ''
 
-
 puts 'output : file'
 temp_converter.file_temperature "data.txt"
 puts temp_converter.to_text
