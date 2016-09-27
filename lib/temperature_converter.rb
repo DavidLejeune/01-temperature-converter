@@ -58,4 +58,11 @@ class TemperatureConverter
 
 	end
 
+	def show_output
+		puts to_text
+		puts to_html
+		puts to_json
+		puts ''
+	end
+
 end

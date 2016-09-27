@@ -6,21 +6,12 @@ temp_converter = TemperatureConverter.new
 
 puts 'output : commandline'
 temp_converter.commandline_temperature ARGV[0]
-puts temp_converter.to_text
-puts temp_converter.to_html
-puts temp_converter.to_json
-puts ''
+temp_converter.show_output
 
 puts 'output : file'
 temp_converter.file_temperature "data.txt"
-puts temp_converter.to_text
-puts temp_converter.to_html
-puts temp_converter.to_json
-puts ''
+temp_converter.show_output
 
 puts 'output : url'
 temp_converter.url_temperature "http://labict.be/software-engineering/temperature/api/temperature/fake"
-puts temp_converter.to_text
-puts temp_converter.to_html
-puts temp_converter.to_json
-puts ''
+temp_converter.show_output
