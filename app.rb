@@ -1,11 +1,6 @@
 #!/usr/bin/env ruby
 
 require './lib/temperature_converter.rb'
-require 'net/http'
-require 'uri'
-
-
-input = ARGV.first.to_f
 
 temp_converter = TemperatureConverter.new
 
