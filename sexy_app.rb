@@ -32,15 +32,21 @@ temp_converter = TemperatureConverter.new
 
 temp_converter.commandline_temperature ARGV[0]
 show_intro
+puts 'output : commandline'
+puts ''
 temp_converter.show_output
 sleep(5)
 
 temp_converter.file_temperature "data.txt"
 show_intro
+puts 'output : file'
+puts ''
 temp_converter.show_output
 sleep(5)
 
 temp_converter.url_temperature "http://labict.be/software-engineering/temperature/api/temperature/fake"
 show_intro
+puts 'output : url'
+puts ''
 temp_converter.show_output
 sleep(5)
