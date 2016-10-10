@@ -6,7 +6,7 @@ require 'uri'
 class TemperatureConverter
 
 
-
+	KELVIN = 273.15
 
 
 
@@ -15,7 +15,7 @@ class TemperatureConverter
 	end
 
 	def convert_to_Kelvin(temp)
-		temp.to_f +  273.15
+		temp.to_f +  KELVIN
 	end
 
 	def to_text
@@ -66,7 +66,7 @@ class TemperatureConverter
 			puts '>to_html'
 		puts to_html
 		puts ''
-		
+
 			puts '>to_json'
 		puts to_json
 		puts ''
