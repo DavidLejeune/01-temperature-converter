@@ -5,8 +5,9 @@ require 'uri'
 
 class TemperatureConverter
 
-
+	attr_reader :temp
 	KELVIN = 273.15
+
 
 
 
@@ -39,7 +40,8 @@ class TemperatureConverter
 
 
 	def commandline_temperature temp
-		@temp = temp.to_f
+		@temp = temp
+		temp.to_f
 		#convert_to_both
 	end
 
