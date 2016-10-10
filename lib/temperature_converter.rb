@@ -8,7 +8,9 @@ class TemperatureConverter
 	attr_reader :temp
 	KELVIN = 273.15
 
-
+	def initialize
+		@temp = 0
+	end
 
 
 	def convert_to_Fahrenheit(temp)
