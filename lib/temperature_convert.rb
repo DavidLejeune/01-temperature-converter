@@ -3,6 +3,7 @@
 require 'net/http'
 require 'uri'
 
+
 class TemperatureConvert
 
 
@@ -10,18 +11,15 @@ class TemperatureConvert
 	KELVIN = 273.15
 
 
+#---------------------------------------------------------------------
+#converting
+	  def self.convert(temp)
+	    celcius = temp
+	    fahrenheit = (temp.to_f * (9 / 5) ) + 32
+	    kelvin = temp.to_f +  KELVIN
+	    return celcius, fahrenheit, kelvin
+	  end
 
-
-	#---------------------------------------------------------------------
-	#converting
-
-	def self.convert_to_Fahrenheit(temp)
-		fahrenheit = (temp.to_f * 9 / 5 ) + 32
-	end
-
-	def self.convert_to_Kelvin(temp)
-		kelvin = temp.to_f +  KELVIN
-	end
 
 
 

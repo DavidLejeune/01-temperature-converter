@@ -39,7 +39,6 @@ class TemperatureConverter
 #---------------------------------------------------------------------
 #converting
 	  def self.convert(temp)
-			@temp = temp.to_f
 	    celcius = temp
 	    fahrenheit = (temp.to_f * (9 / 5) ) + 32
 	    kelvin = temp.to_f +  KELVIN

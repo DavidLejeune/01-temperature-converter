@@ -4,48 +4,51 @@ require 'net/http'
 require 'uri'
 
 
-require './lib/temperature_read.rb'
 class TemperatureOutput
 
 
 	attr_reader :temp
 	KELVIN = 273.15
 
-
-	#---------------------------------------------------------------------
-	#outputting
-
-	def self.to_text(celcius , fahrenheit, kelvin)
-		"Temperature\n" +
-			TemperatureRead.celcius.to_s[0,5] + "  °C\n" +
-			TemperatureRead.fahrenheit.to_s[0,5] + "  °F\n" +
-			TemperatureRead.kelvin.to_s[0,5] + "  K\n"
+	def initialize
+		@temp = 0
 	end
 
-  def self.to_html(celcius , fahrenheit, kelvin)
-		"<div>\n" +
-				"<div>" + TemperatureRead.celcius.to_s[0,5] + " °C</div>\n" +
-				"<div>" + TemperatureRead.fahrenheit.to_s[0,5] + " °F</div>\n" +
-				"<div>" + TemperatureRead.kelvin.to_s[0,5] + " K</div>\n" +
-			"</div>"
-  end
+#---------------------------------------------------------------------
+#outputting
 
-  def self.to_json(celcius , fahrenheit, kelvin)
-		"(celcius: " + TemperatureRead.celcius.to_s[0,5] + ", fahrenheit: " + TemperatureRead.fahrenheit.to_s[0,5] + ", kelvin: " + TemperatureRead.kelvin.to_s[0,5] + ")"
-  end
 
-	def self.show_output(celcius , fahrenheit, kelvin)
-		puts '>to_text'
-		puts to_text(celcius , fahrenheit, kelvin)
-		puts ''
+		def self.to_text(celcius, fahrenheit, kelvin)
+			"Temperature\n" +
+				"#{celcius}  °C\n" +
+				"#{fahrenheit} °F\n" +
+				"#{kelvin}  K\n"
+		end
 
-			puts '>to_html'
-		puts to_html(celcius , fahrenheit, kelvin)
-		puts ''
+		def self.to_html(celcius, fahrenheit, kelvin)
+			"<div>\n" +
+					"<div>#{celcius} °C</div>\n" +
+					"<div>#{fahrenheit} °F</div>\n" +
+					"<div>#{kelvin} K</div>\n" +
+				"</div>"
+		end
 
-			puts '>to_json'
-		puts to_json(celcius , fahrenheit, kelvin)
-		puts ''
-	end
+		def self.to_json(celcius, fahrenheit, kelvin)
+			"(celcius: #{celcius}, fahrenheit: #{fahrenheit}, kelvin: #{kelvin})"
+		end
+
+		def self.show_output(converted_temp)
+			puts '>to_text'
+			puts to_text(converted_temp[0], converted_temp[1], converted_temp[2])
+			puts ''
+
+				puts '>to_html'
+			puts to_html(converted_temp[0], converted_temp[1], converted_temp[2])
+			puts ''
+
+				puts '>to_json'
+			puts to_json(converted_temp[0], converted_temp[1], converted_temp[2])
+			puts ''
+		end
 
 end
