@@ -16,11 +16,11 @@ class TemperatureConvert
 	#converting
 
 	def self.convert_to_Fahrenheit(temp)
-		(temp.to_f * 9 / 5 ) + 32
+		fahrenheit = (temp.to_f * 9 / 5 ) + 32
 	end
 
 	def self.convert_to_Kelvin(temp)
-		temp.to_f +  KELVIN
+		kelvin = temp.to_f +  KELVIN
 	end
 
 
