@@ -14,83 +14,74 @@ class TemperatureConverter
 		@temp = 0
 	end
 
+#---------------------------------------------------------------------
+#reading
+		def self.commandline_temperature temp
+			show_output(convert(temp))
+		end
 
+		def self.file_temperature path
+			@path = path
+			f = File.open(path, "r")
+			show_output(convert(f.sysread(6).to_f))
+		end
 
-		#---------------------------------------------------------------------
-		#reading
-	def self.commandline_temperature temp
-		@temp = temp.to_f
-		#convert_to_both
-	end
+		def self.url_temperature url
+			show_output(convert(open_url(url).to_f))
+		end
 
-	def self.open_url(url)
-		Net::HTTP.get(URI.parse(url))
-	end
-
-	def self.url_temperature url
-		@temp = open_url(url)
-	end
-
-	def self.file_temperature path
-		@path = path
-		f = File.open(path, "r")
-		@temp = f.sysread(6).to_f
-
-	end
+		def self.open_url(url)
+			Net::HTTP.get(URI.parse(url))
+		end
 
 
 
+#---------------------------------------------------------------------
+#converting
+	  def self.convert(temp)
+			@temp = temp.to_f
+	    celcius = temp
+	    fahrenheit = (temp.to_f * (9 / 5) ) + 32
+	    kelvin = temp.to_f +  KELVIN
+	    return celcius, fahrenheit, kelvin
+	  end
 
 
-
-	#---------------------------------------------------------------------
-	#converting
-
-	def self.convert_to_Fahrenheit(temp)
-		(temp.to_f * 9 / 5 ) + 32
-	end
-
-	def self.convert_to_Kelvin(temp)
-		temp.to_f +  KELVIN
-	end
+#---------------------------------------------------------------------
+#outputting
 
 
+		def self.to_text(celcius, fahrenheit, kelvin)
+			"Temperature\n" +
+				"#{celcius}  °C\n" +
+				"#{fahrenheit} °F\n" +
+				"#{kelvin}  K\n"
+		end
 
+		def self.to_html(celcius, fahrenheit, kelvin)
+			"<div>\n" +
+					"<div>#{celcius} °C</div>\n" +
+					"<div>#{fahrenheit} °F</div>\n" +
+					"<div>#{kelvin} K</div>\n" +
+				"</div>"
+		end
 
-	#---------------------------------------------------------------------
-	#outputting
+		def self.to_json(celcius, fahrenheit, kelvin)
+			"(celcius: #{celcius}, fahrenheit: #{fahrenheit}, kelvin: #{kelvin})"
+		end
 
-	def self.to_text
-		"Temperature\n" +
-			@temp.to_s[0,5] + "  °C\n" +
-			convert_to_Fahrenheit(@temp).to_s[0,5] + "  °F\n" +
-			convert_to_Kelvin(@temp).to_s[0,5] + "  K\n"
-	end
+		def self.show_output(converted_temp)
+			puts '>to_text'
+			puts to_text(converted_temp[0], converted_temp[1], converted_temp[2])
+			puts ''
 
-  def self.to_html
-		"<div>\n" +
-				"<div>" + @temp.to_s[0,5] + " °C</div>\n" +
-				"<div>" + convert_to_Fahrenheit(@temp).to_s[0,5] + " °F</div>\n" +
-				"<div>" + convert_to_Kelvin(@temp).to_s[0,5] + " K</div>\n" +
-			"</div>"
-  end
+				puts '>to_html'
+			puts to_html(converted_temp[0], converted_temp[1], converted_temp[2])
+			puts ''
 
-  def self.to_json
-		"(celcius: " + @temp.to_s[0,5] + ", fahrenheit: " + convert_to_Fahrenheit(@temp).to_s[0,5] + ", kelvin: " + convert_to_Kelvin(@temp).to_s[0,5] + ")"
-  end
-
-	def self.show_output
-		puts '>to_text'
-		puts to_text
-		puts ''
-
-			puts '>to_html'
-		puts to_html
-		puts ''
-
-			puts '>to_json'
-		puts to_json
-		puts ''
-	end
+				puts '>to_json'
+			puts to_json(converted_temp[0], converted_temp[1], converted_temp[2])
+			puts ''
+		end
 
 end

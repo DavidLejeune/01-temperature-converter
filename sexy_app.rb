@@ -6,6 +6,12 @@ require './lib/temperature_convert.rb'
 
 require './lib/show_temperature_converter.rb'
 
+
+cmdl_input = ARGV[0]
+file_path = "data.txt"
+url_path = "http://labict.be/software-engineering/temperature/api/temperature/fake"
+
+
 def show_intro
   system "clear"
 
@@ -30,25 +36,20 @@ def show_intro
 end
 
 
-
-
-TemperatureConverter.commandline_temperature ARGV[0]
 show_intro
-puts 'output : commandline'
-puts ''
-TemperatureConverter.show_output
+puts "output : read from commandline\n"
+TemperatureConverter.commandline_temperature cmdl_input
+puts '------------------------------------------------------------------'
 sleep(5)
 
-TemperatureConverter.file_temperature "data.txt"
 show_intro
-puts 'output : file'
-puts ''
-TemperatureConverter.show_output
+puts "output : read from file"
+TemperatureConverter.file_temperature file_path
+puts '------------------------------------------------------------------'
 sleep(5)
 
-TemperatureConverter.url_temperature "http://labict.be/software-engineering/temperature/api/temperature/fake"
 show_intro
-puts 'output : url'
-puts ''
-TemperatureConverter.show_output
+puts "output : read from url\n"
+TemperatureConverter.url_temperature url_path
+puts '------------------------------------------------------------------'
 sleep(5)
