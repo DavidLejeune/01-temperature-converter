@@ -47,5 +47,4 @@ sleep(5)
 show_intro
 puts "output : read from url\n"
 TemperatureRead.url_temperature url_path
-puts '------------------------------------------------------------------'
-sleep(5)
+puts '----------------------------------------------------task completed'
