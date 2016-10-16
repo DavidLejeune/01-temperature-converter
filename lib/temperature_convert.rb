@@ -1,15 +1,11 @@
-
 #!/usr/bin/env ruby
-require 'net/http'
-require 'uri'
+
 
 
 class TemperatureConvert
 
-
 	attr_reader :temp
 	KELVIN = 273.15
-
 
 #---------------------------------------------------------------------
 #converting
@@ -19,8 +15,5 @@ class TemperatureConvert
 	    kelvin = temp.to_f +  KELVIN
 	    return celcius, fahrenheit, kelvin
 	  end
-
-
-
 
 end
