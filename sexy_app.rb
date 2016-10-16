@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 
 require './lib/temperature_converter.rb'
+require './lib/read_temperature_converter.rb'
+require './lib/temperature_convert.rb'
+
+require './lib/show_temperature_converter.rb'
 
 def show_intro
   system "clear"
@@ -28,25 +32,28 @@ end
 
 
 
-temp_converter = TemperatureConverter.new
+temp_reader = ReadTemperatureConverter.new
+temp_converter = TemperatureConvert.new
+temp_output = ShowTemperatureConverter.new
 
-temp_converter.commandline_temperature ARGV[0]
+
+temp_reader.commandline_temperature ARGV[0]
 show_intro
 puts 'output : commandline'
 puts ''
-temp_converter.show_output
+temp_output.show_output ARGV[0]
 sleep(5)
 
-temp_converter.file_temperature "data.txt"
+temp_reader.file_temperature "data.txt"
 show_intro
 puts 'output : file'
 puts ''
-temp_converter.show_output
+#temp_converter.show_output
 sleep(5)
 
-temp_converter.url_temperature "http://labict.be/software-engineering/temperature/api/temperature/fake"
+temp_reader.url_temperature "http://labict.be/software-engineering/temperature/api/temperature/fake"
 show_intro
 puts 'output : url'
 puts ''
-temp_converter.show_output
+#temp_converter.show_output
 sleep(5)
