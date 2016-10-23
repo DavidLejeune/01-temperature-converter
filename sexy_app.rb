@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
-require './lib/temperature_read.rb'
+require './lib/temperature_read_commandline.rb'
+require './lib/temperature_read_file.rb'
+require './lib/temperature_read_url.rb'
 
 
 cmdl_input = ARGV[0]
@@ -34,17 +36,17 @@ end
 
 show_intro
 puts "output : read from commandline\n"
-TemperatureRead.commandline_temperature cmdl_input
+TemperatureReadCommandline.commandline_temperature cmdl_input
 puts '------------------------------------------------------------------'
 sleep(5)
 
 show_intro
 puts "output : read from file"
-TemperatureRead.file_temperature file_path
+TemperatureReadFile.file_temperature file_path
 puts '------------------------------------------------------------------'
 sleep(5)
 
 show_intro
 puts "output : read from url\n"
-TemperatureRead.url_temperature url_path
+TemperatureReadUrl.url_temperature url_path
 puts '----------------------------------------------------task completed'
