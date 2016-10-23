@@ -16,3 +16,8 @@ Class : 3PB-ICT
 Mission : see pdf https://github.com/DavidLejeune/01-temperature-converter/blob/master/Temperature%20Converter%20Application.pdf
           create Ruby app to covert Celcius into Fahrenheit and Kelvin
           output to text , html, json string
+
+          update :
+          - make static
+          - single responsibility
+          
