@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+require './lib/temperature_convert_to_celcius.rb'
+require './lib/temperature_convert_to_fahrenheit.rb'
+require './lib/temperature_convert_to_kelvin.rb'
+
 class TemperatureConvert
 
 	attr_reader :temp
@@ -10,22 +14,12 @@ class TemperatureConvert
 #---------------------------------------------------------------------
 #converting
 	  def self.convert(temp)
-	    celcius = to_celcius(temp)
-	    fahrenheit = to_fahrenheit(temp)
-	    kelvin = to_kelvin(temp)
+	    celcius = TemperatureConvertToCelcius.to_celcius(temp)
+	    fahrenheit = TemperatureConvertToFahrenheit.to_fahrenheit(temp)
+	    kelvin = TemperatureConvertToKelvin.to_kelvin(temp)
 	    return celcius, fahrenheit, kelvin
 	  end
 
-		 def self.to_celcius(temp)
-		 	temp
-		 end
 
-		 def self.to_fahrenheit(temp)
-		 	(temp.to_f * FAHRENHEIT_SLOPE) + FAHRENHEIT_OFFSET
-		 end
-
-		 def self.to_kelvin(temp)
-		 	temp.to_f + KELVIN
-		 end
 
 end
