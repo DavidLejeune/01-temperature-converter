@@ -9,7 +9,6 @@ class TemperatureReadCommandline
 
 
 	attr_reader :temp
-	KELVIN = 273.15
 
 	def initialize
 		@temp = 0
@@ -21,6 +20,6 @@ class TemperatureReadCommandline
 			TemperatureOutput.show_output(TemperatureConvert.convert(temp))
 		end
 
-	
+
 
 end

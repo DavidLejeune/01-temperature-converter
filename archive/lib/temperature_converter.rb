@@ -8,7 +8,6 @@ class TemperatureConverter
 
 
 	attr_reader :temp
-	KELVIN = 273.15
 
 	def initialize
 		@temp = 0

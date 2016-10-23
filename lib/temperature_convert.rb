@@ -7,9 +7,6 @@ require './lib/temperature_convert_to_kelvin.rb'
 class TemperatureConvert
 
 	attr_reader :temp
-	KELVIN = 273.15
-	FAHRENHEIT_OFFSET = 32
-	FAHRENHEIT_SLOPE = Rational(9,5)
 
 #---------------------------------------------------------------------
 #converting

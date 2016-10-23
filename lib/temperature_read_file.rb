@@ -1,7 +1,5 @@
 
 #!/usr/bin/env ruby
-require 'net/http'
-require 'uri'
 require './lib/temperature_convert.rb'
 require './lib/temperature_output.rb'
 
@@ -9,7 +7,6 @@ class TemperatureReadFile
 
 
 	attr_reader :temp
-	KELVIN = 273.15
 
 	def initialize
 		@temp = 0
