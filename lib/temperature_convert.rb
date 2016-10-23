@@ -10,24 +10,22 @@ class TemperatureConvert
 #---------------------------------------------------------------------
 #converting
 	  def self.convert(temp)
-	    celcius = temp
-	    fahrenheit = (temp.to_f * (9 / 5) ) + 32
-			#fahrenheit = to_fahrenheit(temp)
-	    kelvin = temp.to_f +  KELVIN
-			#kelvin = to_fahrenheit(temp)
+	    celcius = to_celcius(temp)
+	    fahrenheit = to_fahrenheit(temp)
+	    kelvin = to_kelvin(temp)
 	    return celcius, fahrenheit, kelvin
 	  end
 
-		# def self.to_celcius(temp)
-		# 	celcius = temp
-		# end
-		#
-		# def self.to_fahrenheit(temp)
-		# 	(to_celcius * FAHRENHEIT_SLOPE) + FAHRENHEIT_OFFSET
-		# end
-		#
-		# def self.to_kelvin(temp)
-		# 	to_celcius + KELVIN
-		# end
+		 def self.to_celcius(temp)
+		 	temp
+		 end
+
+		 def self.to_fahrenheit(temp)
+		 	(temp.to_f * FAHRENHEIT_SLOPE) + FAHRENHEIT_OFFSET
+		 end
+
+		 def self.to_kelvin(temp)
+		 	temp.to_f + KELVIN
+		 end
 
 end
