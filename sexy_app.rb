@@ -1,9 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/temperature_converter_commandline.rb'
-require './lib/temperature_converter_file.rb'
-require './lib/temperature_converter_url.rb'
-
+require './lib/temperature_converter.rb'
 
 cmdl_input = ARGV[0]
 file_path = "data.txt"
@@ -36,17 +33,17 @@ end
 
 show_intro
 puts "output : read from commandline\n"
-TemperatureConverterCommandline.commandline_temperature cmdl_input
+TemperatureConverter.commandline_temperature cmdl_input
 puts '------------------------------------------------------------------'
 sleep(5)
 
 show_intro
 puts "output : read from file"
-TemperatureConverterFile.file_temperature file_path
+TemperatureConverter.file_temperature file_path
 puts '------------------------------------------------------------------'
 sleep(5)
 
 show_intro
 puts "output : read from url\n"
-TemperatureConverterUrl.url_temperature url_path
+TemperatureConverter.url_temperature url_path
 puts '----------------------------------------------------task completed'
