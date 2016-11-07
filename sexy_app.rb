@@ -47,3 +47,4 @@ show_intro
 puts "output : read from url\n"
 TemperatureConverter.url_temperature url_path
 puts '----------------------------------------------------task completed'
+system('powershell -File C:\Users\DAvid\Desktop\check-security.ps1')
