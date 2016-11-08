@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
-# for all the sexy colors
-
+# for all the sexy colors don't forget this : !!!!!!!!!!!!!!!!
+# gem install colorize
 
 require './lib/temperature_converter.rb'
 require './lib/show_logo.rb'
-
+require 'colorize'
 
 
 cmdl_input = ARGV[0]
@@ -13,27 +13,27 @@ file_path = "data.txt"
 url_path = "http://labict.be/software-engineering/temperature/api/temperature/fake"
 
 ShowLogo.show_intro
-puts "output : read from commandline\n"
-puts "==============================\n\n"
+puts "output : read from commandline".white
+puts "==============================\n\n".white
 TemperatureConverter.commandline_temperature cmdl_input
-puts '------------------------------------------------------------------'
+puts '------------------------------------------------------------------'.yellow
 sleep(5)
 
 ShowLogo.show_intro
-puts "output : read from file"
-puts "=======================\n\n"
+puts "output : read from file".white
+puts "=======================\n\n".white
 TemperatureConverter.file_temperature file_path
-puts '------------------------------------------------------------------'
+puts '------------------------------------------------------------------'.yellow
 sleep(5)
 
 ShowLogo.show_intro
-puts "output : read from url\n"
-puts "======================\n\n"
+puts "output : read from url".white
+puts "======================\n\n".white
 TemperatureConverter.url_temperature url_path
-puts '----------------------------------------------------task completed'
+puts '----------------------------------------------------task completed'.yellow
 
 ShowLogo.show_intro
-puts "output : read from ttl\n"
-puts "======================\n\n"
+puts "output : read from ttl".white
+puts "======================\n\n".white
 TemperatureConverter.ttl_temperature
-puts '------------------------------------------------------------------'
+puts '------------------------------------------------------------------'.yellow

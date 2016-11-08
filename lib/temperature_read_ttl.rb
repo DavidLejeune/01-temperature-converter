@@ -8,6 +8,7 @@ require './lib/show_logo.rb'
 require 'rubygems'
 require 'mqtt'
 
+require 'colorize'
 require 'json'
 
 class TemperatureReadTtl
@@ -50,11 +51,12 @@ class TemperatureReadTtl
           #
           # puts read_ttl_temps
           ShowLogo.show_intro
-						puts "output : read from ttl\n"
+						puts "output : read from ttl".white
+					  puts "======================\n\n".white
           TemperatureOutput.show_output(TemperatureConvert.convert("#{sv1}"))
 					dev_eui = obj['dev_eui']
-					puts "-------------------------------------------------Cycle nr #{countCycles}"
-					puts "------------------------------------dev_eui #{dev_eui}"
+					puts "-------------------------------------------------Cycle nr #{countCycles}".yellow
+					puts "------------------------------------dev_eui #{dev_eui}".magenta
         end
 
       end

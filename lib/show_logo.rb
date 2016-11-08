@@ -1,32 +1,32 @@
 #!/usr/bin/env ruby
-
+require 'colorize'
 class ShowLogo
 
 
 #---------------------------------------------------------------------
 #narcism
 
-def self.show_intro
-  system "clear"
+  def self.show_intro
+    system "clear"
 
 
-  #Startup screen
-  puts '      ____              __        '
-  puts '     / __ \\   ____ _   / /      ___ '
-  puts '    / / / /  / __ `/  / /      / _ \\'
-  puts '   / /_/ /  / /_/ /  / /___   /  __/'
-  puts '  /_____/   \\__,_/  /_____/   \\___/ '
-  puts ''
-  puts '     +-+-+-+-+ +-+-+-+-+-+-+-+-+'
-  puts '     |R|u|b|y| |t|e|r|m|i|n|a|l|'
-  puts '     +-+-+-+-+ +-+-+-+-+-+-+-+-+'
-  puts ''
-  puts ' >> Author : David Lejeune'
-  puts ''
-  puts ' ###########################################'
-  puts ' #             CONVERT CELCIUS             #'
-  puts ' ###########################################'
-  puts ''
-end
+    #Startup screen
+    puts '      ____              __        '.red
+    puts '     / __ \\   ____ _   / /      ___ '.red
+    puts '    / / / /  / __ `/  / /      / _ \\'.red
+    puts '   / /_/ /  / /_/ /  / /___   /  __/'.red
+    puts '  /_____/   \\__,_/  /_____/   \\___/ '.red
+    puts ''
+    puts '     +-+-+-+-+ +-+-+-+-+-+-+-+-+'.yellow
+    puts '     |R|u|b|y| |t|e|r|m|i|n|a|l|'.yellow
+    puts '     +-+-+-+-+ +-+-+-+-+-+-+-+-+'.yellow
+    puts ''
+    puts ' >> Author : David Lejeune'.light_blue
+    puts ''
+    puts ' ###########################################'.red
+    puts ' #             CONVERT CELCIUS             #'.red
+    puts ' ###########################################'.red
+    puts ''
+  end
 
 end
