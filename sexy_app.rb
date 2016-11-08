@@ -2,12 +2,38 @@
 
 require './lib/temperature_converter.rb'
 
-cmdl_input = ARGV[0]
-file_path = "data.txt"
-url_path = "http://labict.be/software-engineering/temperature/api/temperature/fake"
+class App
 
+def initialize
+  @cmdl_input = ARGV[0]
+  @file_path = "data.txt"
+  @url_path = "http://labict.be/software-engineering/temperature/api/temperature/fake"
 
-def show_intro
+  self.class.show_intro
+  puts "output : read from commandline\n"
+  App::TemperatureConverter.commandline_temperature @cmdl_input
+  puts '------------------------------------------------------------------'
+  sleep(5)
+
+  self.class.show_intro
+  puts "output : read from file"
+  TemperatureConverter.file_temperature @file_path
+  puts '------------------------------------------------------------------'
+  sleep(5)
+
+  self.class.show_intro
+  puts "output : read from url\n"
+  TemperatureConverter.url_temperature @url_path
+  puts '----------------------------------------------------task completed'
+
+  self.class.show_intro
+  puts "output : read from ttl\n"
+  TemperatureConverter.ttl_temperature
+  puts '------------------------------------------------------------------'
+
+end
+
+def self.show_intro
   system "clear"
 
 
@@ -31,23 +57,7 @@ def show_intro
 end
 
 
-show_intro
-puts "output : read from commandline\n"
-TemperatureConverter.commandline_temperature cmdl_input
-puts '------------------------------------------------------------------'
-sleep(5)
 
-show_intro
-puts "output : read from file"
-TemperatureConverter.file_temperature file_path
-puts '------------------------------------------------------------------'
-sleep(5)
+end
 
-show_intro
-puts "output : read from url\n"
-TemperatureConverter.url_temperature url_path
-puts '----------------------------------------------------task completed'
-
-puts "output : read from ttl\n"
-TemperatureConverter.ttl_temperature
-puts '------------------------------------------------------------------'
+App.new

@@ -7,6 +7,7 @@ require './lib/temperature_output.rb'
 require 'rubygems'
 require 'mqtt'
 
+require_relative '../sexy_app.rb'
 
 require 'json'
 
@@ -48,6 +49,7 @@ class TemperatureReadTtl
           # read_ttl_temps = temps.select {|temp| temp['temperature'] != ''}
           #
           # puts read_ttl_temps
+          App.show_intro
           TemperatureOutput.show_output(TemperatureConvert.convert("#{sv1}"))
 
         end
