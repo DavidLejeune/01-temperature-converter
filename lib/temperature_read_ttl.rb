@@ -25,6 +25,7 @@ class TemperatureReadTtl
 		def self.ttl_temperature
       # Subscribe example
 
+			countCycles=0
 
       client = MQTT::Client.connect(
             :host => 'staging.thethingsnetwork.org',
@@ -34,9 +35,9 @@ class TemperatureReadTtl
           ) do |c|
         # If you pass a block to the get method, then it will loop
         c.get('#') do |topic,message|
-
           obj = JSON.parse("#{message}")
           sv1 = obj['fields']['temperature']
+					countCycles = countCycles + 1
           #puts "#{topic}: #{message}"
           # another = JSON.parse("#{message}")
           # temps = another['fields']
@@ -48,9 +49,12 @@ class TemperatureReadTtl
           # read_ttl_temps = temps.select {|temp| temp['temperature'] != ''}
           #
           # puts read_ttl_temps
-          #ShowLogo.show_intro
+          ShowLogo.show_intro
+						puts "output : read from ttl\n"
           TemperatureOutput.show_output(TemperatureConvert.convert("#{sv1}"))
 
+					puts "-------------------------------------------------Cycle nr #{countCycles}"
+					puts "#{message}"
         end
 
       end
