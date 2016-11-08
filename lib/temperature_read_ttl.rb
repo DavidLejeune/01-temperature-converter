@@ -52,9 +52,9 @@ class TemperatureReadTtl
           ShowLogo.show_intro
 						puts "output : read from ttl\n"
           TemperatureOutput.show_output(TemperatureConvert.convert("#{sv1}"))
-
+					dev_eui = obj['dev_eui']
 					puts "-------------------------------------------------Cycle nr #{countCycles}"
-					puts "#{message}"
+					puts "------------------------------------dev_eui #{dev_eui}"
         end
 
       end
