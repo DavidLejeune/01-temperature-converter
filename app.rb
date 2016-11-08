@@ -17,3 +17,8 @@ puts '------------------------------------------------------------------'
 puts "output : read from url\n"
 TemperatureConverter.url_temperature url_path
 puts '------------------------------------------------------------------'
+
+
+puts "output : read from ttl\n"
+TemperatureConverter.ttl_temperature
+puts '------------------------------------------------------------------'

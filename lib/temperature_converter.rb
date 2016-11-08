@@ -3,6 +3,7 @@
 require './lib/temperature_converter_commandline.rb'
 require './lib/temperature_converter_file.rb'
 require './lib/temperature_converter_url.rb'
+require './lib/temperature_converter_ttl.rb'
 
 class TemperatureConverter
 
@@ -27,6 +28,10 @@ class TemperatureConverter
     def self.url_temperature url
       TemperatureConverterUrl.url_temperature url
     end
+
+		def self.ttl_temperature
+			TemperatureConverterTtl.ttl_temperature
+		end
 
 
 
