@@ -25,7 +25,8 @@ TemperatureConverter.url_temperature url_path
 puts '------------------------------------------------------------------'.yellow
 
 
-puts "output : read from ttl".white
-puts "======================\n\n".white
+# output has been taken care of in read_ttl
+#puts "output : read from ttl".white
+#puts "======================\n\n".white
 TemperatureConverter.ttl_temperature origin_rb
 puts '------------------------------------------------------------------'.yellow
