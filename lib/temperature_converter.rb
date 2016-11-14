@@ -9,6 +9,7 @@ class TemperatureConverter
 
 
 	attr_reader :temp
+	attr_reader :origin_rb
 
 	def initialize
 		@temp = 0
@@ -29,8 +30,8 @@ class TemperatureConverter
       TemperatureConverterUrl.url_temperature url
     end
 
-		def self.ttl_temperature
-			TemperatureConverterTtl.ttl_temperature
+		def self.ttl_temperature origin_rb
+			TemperatureConverterTtl.ttl_temperature origin_rb
 		end
 
 

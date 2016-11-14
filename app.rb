@@ -6,6 +6,7 @@ cmdl_input = ARGV[0]
 file_path = "data.txt"
 url_path = "http://labict.be/software-engineering/temperature/api/temperature/fake"
 
+origin_rb = "app"
 
 puts "output : read from commandline".white
 puts "==============================\n\n".white
@@ -26,5 +27,5 @@ puts '------------------------------------------------------------------'.yellow
 
 puts "output : read from ttl".white
 puts "======================\n\n".white
-TemperatureConverter.ttl_temperature
+TemperatureConverter.ttl_temperature origin_rb
 puts '------------------------------------------------------------------'.yellow

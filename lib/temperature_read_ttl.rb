@@ -15,6 +15,7 @@ class TemperatureReadTtl
 
 
 	attr_reader :temp
+	attr_reader :origin_rb
 
 	def initialize
 		@temp = 0
@@ -23,7 +24,7 @@ class TemperatureReadTtl
 #---------------------------------------------------------------------
 #reading
 
-		def self.ttl_temperature
+		def self.ttl_temperature origin_rb
       # Subscribe example
 
 			countCycles=0
@@ -34,29 +35,30 @@ class TemperatureReadTtl
             :username => '70B3D57ED00012B2',
             :password => 'c8iuTSccnypK1eoFzEb/OoqB2FVAiFg/aEaYesnNf4w='
           ) do |c|
+
         # If you pass a block to the get method, then it will loop
         c.get('#') do |topic,message|
           obj = JSON.parse("#{message}")
           sv1 = obj['fields']['temperature']
 					countCycles = countCycles + 1
-          #puts "#{topic}: #{message}"
-          # another = JSON.parse("#{message}")
-          # temps = another['fields']
-          # read_ttl_temps = temps.select {|temp| temp['temperature'] != ''}
-          # puts read_ttl_temps
-          #
-          # another = JSON.parse("#{read_ttl_temps}")
-          # temps = another['temperature']
-          # read_ttl_temps = temps.select {|temp| temp['temperature'] != ''}
-          #
-          # puts read_ttl_temps
-          ShowLogo.show_intro
+
+
+					if (origin_rb == "app")
 						puts "output : read from ttl".white
-					  puts "======================\n\n".white
-          TemperatureOutput.show_output(TemperatureConvert.convert("#{sv1}"))
-					dev_eui = obj['dev_eui']
-					puts "-------------------------------------------------Cycle nr #{countCycles}".yellow
-					puts "------------------------------------dev_eui #{dev_eui}".magenta
+						puts "======================\n\n".white
+	          TemperatureOutput.show_output(TemperatureConvert.convert("#{sv1}"))
+						puts '------------------------------------------------------------------'.yellow
+					elsif (origin_rb == "sexy_app")
+						ShowLogo.show_intro
+						puts "output : read from ttl".white
+						puts "======================\n\n".white
+	          TemperatureOutput.show_output(TemperatureConvert.convert("#{sv1}"))
+						dev_eui = obj['dev_eui']
+						puts "-------------------------------------------------Cycle nr #{countCycles}".yellow
+						puts "------------------------------------dev_eui #{dev_eui}".magenta
+					end
+
+
         end
 
       end
