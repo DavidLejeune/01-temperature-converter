@@ -44,7 +44,6 @@ class TemperatureReadTtl
 					countCycles = countCycles + 1
 					dev_eui = obj['dev_eui']
 
-
 					if (origin_rb == "app")
 						puts "output : read from ttl".white
 						puts "======================\n\n".white
