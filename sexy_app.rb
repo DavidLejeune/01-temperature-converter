@@ -11,7 +11,7 @@ require 'colorize'
 cmdl_input = ARGV[0]
 file_path = "data.txt"
 url_path = "http://labict.be/software-engineering/temperature/api/temperature/fake"
-
+$show_output_style = 7
 origin_rb = "sexy_app"
 
 ShowLogo.show_intro

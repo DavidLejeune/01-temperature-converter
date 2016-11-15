@@ -13,17 +13,29 @@ class TemperatureOutput
 #outputting
 
 		def self.show_output(converted_temp)
-			puts '>to_text'
-			puts TemperatureOutputToText.to_text(converted_temp[0], converted_temp[1], converted_temp[2])
-			puts ''
 
-			puts '>to_html'
-			puts TemperatureOutputToHtml.to_html(converted_temp[0], converted_temp[1], converted_temp[2])
-			puts ''
 
-			puts '>to_json'
-			puts TemperatureOutputToJson.to_json(converted_temp[0], converted_temp[1], converted_temp[2])
-			puts ''
+			if ($show_output_style == 1) || ($show_output_style == 3) ||  ($show_output_style == 5) ||($show_output_style == 7)
+				puts '>to_text'
+				puts TemperatureOutputToText.to_text(converted_temp[0], converted_temp[1], converted_temp[2])
+				puts ''
+			end
+
+			if ($show_output_style == 2) || ($show_output_style == 3)  || ($show_output_style == 6) || ($show_output_style == 7)
+				puts '>to_html'
+				puts TemperatureOutputToHtml.to_html(converted_temp[0], converted_temp[1], converted_temp[2])
+				puts ''
+			end
+
+
+			if ($show_output_style == 4) || ($show_output_style == 6) || ($show_output_style == 7)
+				puts '>to_json'
+				puts TemperatureOutputToJson.to_json(converted_temp[0], converted_temp[1], converted_temp[2])
+				puts ''
+			end
+
+
 		end
+
 
 end
