@@ -51,7 +51,9 @@ OptionParser.new do |opts|
     #puts "======================\n\n".white
     puts "output : read from ttn".white
     puts "======================\n\n".white
-    @conversion = TemperatureConverterTtl.ttl_temperature
+    Thread.new do
+      @conversion = TemperatureConverterTtl.ttl_temperature
+    end
   end
 
 
