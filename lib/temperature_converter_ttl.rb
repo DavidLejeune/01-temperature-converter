@@ -15,7 +15,7 @@ class TemperatureConverterTtl
 #start converting by reading
 
 		def self.ttl_temperature
-			TemperatureReadTtl.ttl_temperature
+			TemperatureConvert.convert(TemperatureReadTtl.ttl_temperature)
 		end
 
 end

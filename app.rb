@@ -49,7 +49,9 @@ OptionParser.new do |opts|
     # output has been taken care of in read_ttl
     #puts "output : read from ttl".white
     #puts "======================\n\n".white
-    TemperatureConverter.ttl_temperature origin_rb
+    puts "output : read from url".white
+    puts "======================\n\n".white
+    @conversion = TemperatureConverterTtl.ttl_temperature
   end
 
 

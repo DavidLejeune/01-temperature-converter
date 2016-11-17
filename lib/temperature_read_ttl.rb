@@ -37,8 +37,9 @@ class TemperatureReadTtl
         # If you pass a block to the get method, then it will loop
         c.get('#') do |topic,message|
           obj = JSON.parse("#{message}")
-          sv1 = obj['fields']['temperature']
-					countCycles = countCycles + 1
+					dev_eui = obj['dev_eui']
+          # sv1 = obj['fields']['temperature']
+					# countCycles = countCycles + 1
           #puts "#{topic}: #{message}"
           # another = JSON.parse("#{message}")
           # temps = another['fields']
@@ -50,13 +51,13 @@ class TemperatureReadTtl
           # read_ttl_temps = temps.select {|temp| temp['temperature'] != ''}
           #
           # puts read_ttl_temps
-          ShowLogo.show_intro
-						puts "output : read from ttl".white
-					  puts "======================\n\n".white
-          TemperatureOutput.show_output(TemperatureConvert.convert("#{sv1}"))
-					dev_eui = obj['dev_eui']
-					puts "-------------------------------------------------Cycle nr #{countCycles}".yellow
-					puts "------------------------------------dev_eui #{dev_eui}".magenta
+          # ShowLogo.show_intro
+						# puts "output : read from ttl".white
+					  # puts "======================\n\n".white
+          # TemperatureOutput.show_output(TemperatureConvert.convert("#{sv1}"))
+					# puts "-------------------------------------------------Cycle nr #{countCycles}".yellow
+					# puts "------------------------------------dev_eui #{dev_eui}".magenta
+					sv1 = obj['fields']['temperature']
         end
 
       end
