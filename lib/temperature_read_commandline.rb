@@ -17,7 +17,10 @@ class TemperatureReadCommandline
 #---------------------------------------------------------------------
 #reading
 		def self.commandline_temperature temp
-			TemperatureOutput.show_output(TemperatureConvert.convert(temp))
+			temp = temp
+			puts "read"
+			puts temp
+			temp
 		end
 
 

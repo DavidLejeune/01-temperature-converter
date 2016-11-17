@@ -11,6 +11,8 @@ class TemperatureConvert
 #---------------------------------------------------------------------
 #converting
 	  def self.convert(temp)
+			puts "convert"
+			puts temp
 	    celcius = TemperatureConvertToCelcius.to_celcius(temp)
 	    fahrenheit = TemperatureConvertToFahrenheit.to_fahrenheit(temp)
 	    kelvin = TemperatureConvertToKelvin.to_kelvin(temp)

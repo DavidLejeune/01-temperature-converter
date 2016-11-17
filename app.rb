@@ -36,24 +36,20 @@ OptionParser.new do |opts|
     if ($show_output_style == 0)
       $show_output_style = 7
     end
+
+
     puts "output : read from commandline".white
     puts "==============================\n\n".white
-    TemperatureConverter.commandline_temperature mycommand
+
+    conversion = TemperatureConverterCommandline.commandline_temperature mycommand
+
+    TemperatureOutput.show_output(conversion)
+
     puts '------------------------------------------------------------------'.yellow
   end
 
 
 
-
-  opts.on("-c MYCOMMAND", "--command MYCOMMAND", Float , "Commandline temperature") do |mycommand|
-    if ($show_output_style == 0)
-      $show_output_style = 7
-    end
-    puts "output : read from commandline".white
-    puts "==============================\n\n".white
-    TemperatureConverter.commandline_temperature mycommand
-    puts '------------------------------------------------------------------'.yellow
-  end
 
   opts.on("-f [MYFILE]", "--file [MYFILE]", String , "File path") do |myfile|
     if ($show_output_style == 0)
