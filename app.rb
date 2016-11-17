@@ -7,8 +7,6 @@ require 'optparse'
 cmdl_input = ARGV[0]
 file_path = "data.txt"
 url_path = "http://labict.be/software-engineering/temperature/api/temperature/fake"
-@show_all=true
-
 
 OptionParser.new do |opts|
   opts.banner = "Usage: ruby app.rb [options]"
@@ -46,9 +44,6 @@ OptionParser.new do |opts|
 
 
   opts.on("-m", "--mqtt" , "MQTT yes or no") do |mymqtt|
-    # output has been taken care of in read_ttl
-    #puts "output : read from ttl".white
-    #puts "======================\n\n".white
     puts "output : read from ttn".white
     puts "======================\n\n".white
     # Thread.new do
@@ -73,13 +68,9 @@ OptionParser.new do |opts|
     puts '------------------------------------------------------------------'.yellow
   end
 
-  #if(@show_all)
   opts.on("-a", "--all", Float , "Show all output formats") do |t|
     TemperatureOutput.show_output(@conversion)
     puts '------------------------------------------------------------------'.yellow
   end
-  #end
-
-
 
 end.parse!
