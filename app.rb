@@ -3,7 +3,6 @@ require './lib/temperature_converter.rb'
 require 'colorize'
 require 'optparse'
 
-
 cmdl_input = ARGV[0]
 file_path = "data.txt"
 url_path = "http://labict.be/software-engineering/temperature/api/temperature/fake"
@@ -32,7 +31,6 @@ OptionParser.new do |opts|
     @conversion = TemperatureConverterFile.file_temperature myfile
   end
 
-
   opts.on("-u [MYURL]", "--url [MYURL]", String , "Url path , null = default Url") do |myurl|
     if (myurl.nil?)
       myurl = url_path
@@ -42,7 +40,6 @@ OptionParser.new do |opts|
     @conversion = TemperatureConverterUrl.url_temperature myurl
   end
 
-
   opts.on("-m", "--mqtt" , "MQTT yes or no") do |mymqtt|
     puts "output : read from ttn".white
     puts "======================\n\n".white
@@ -50,7 +47,6 @@ OptionParser.new do |opts|
       @conversion = TemperatureConverterTtl.ttl_temperature
     # end
   end
-
 
   opts.on("-t", "--text", Float , "Show text only") do |t|
     @show_all=false
