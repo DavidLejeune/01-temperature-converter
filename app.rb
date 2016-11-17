@@ -25,7 +25,7 @@ OptionParser.new do |opts|
   end
 
 
-  opts.on("-f [MYFILE]", "--file [MYFILE]", String , "File path") do |myfile|
+  opts.on("-f [MYFILE]", "--file [MYFILE]", String , "File path , null = default file") do |myfile|
     if (myfile.nil?)
         myfile = file_path
     end
@@ -35,7 +35,7 @@ OptionParser.new do |opts|
   end
 
 
-  opts.on("-u [MYURL]", "--url [MYURL]", String , "Url path") do |myurl|
+  opts.on("-u [MYURL]", "--url [MYURL]", String , "Url path , null = default Url") do |myurl|
     if (myurl.nil?)
       myurl = url_path
     end
@@ -51,7 +51,9 @@ OptionParser.new do |opts|
     #puts "======================\n\n".white
     puts "output : read from ttn".white
     puts "======================\n\n".white
-    @conversion = TemperatureConverterTtl.ttl_temperature
+    # Thread.new do
+      @conversion = TemperatureConverterTtl.ttl_temperature
+    # end
   end
 
 
