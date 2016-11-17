@@ -38,8 +38,8 @@ class TemperatureReadTtl
         c.get('#') do |topic,message|
           obj = JSON.parse("#{message}")
 					dev_eui = obj['dev_eui']
-          # sv1 = obj['fields']['temperature']
-					# countCycles = countCycles + 1
+          sv1 = obj['fields']['temperature']
+					countCycles = countCycles + 1
           #puts "#{topic}: #{message}"
           # another = JSON.parse("#{message}")
           # temps = another['fields']
@@ -54,10 +54,12 @@ class TemperatureReadTtl
           # ShowLogo.show_intro
 						# puts "output : read from ttl".white
 					  # puts "======================\n\n".white
-          # TemperatureOutput.show_output(TemperatureConvert.convert("#{sv1}"))
-					# puts "-------------------------------------------------Cycle nr #{countCycles}".yellow
-					# puts "------------------------------------dev_eui #{dev_eui}".magenta
+          TemperatureOutput.show_output(TemperatureConvert.convert("#{sv1}"))
+					puts "-------------------------------------------------Cycle nr #{countCycles}".yellow
+					puts "------------------------------------dev_eui #{dev_eui}".magenta
 					sv1 = obj['fields']['temperature']
+					temp = "#{sv1}"
+					# break
         end
 
       end
