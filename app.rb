@@ -63,9 +63,6 @@ OptionParser.new do |opts|
 
 
   opts.on("-m", "--mqtt" , "MQTT yes or no") do |mymqtt|
-    if ($show_output_style == 0)
-      $show_output_style = 7
-    end
     # output has been taken care of in read_ttl
     #puts "output : read from ttl".white
     #puts "======================\n\n".white
