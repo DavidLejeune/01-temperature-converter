@@ -59,10 +59,11 @@ class TemperatureReadTtl
 					puts "------------------------------------dev_eui #{dev_eui}".magenta
 					sv1 = obj['fields']['temperature']
 					temp = "#{sv1}"
-					# break
+					#client.disconnect()
         end
 
       end
+
 
 
 		end
