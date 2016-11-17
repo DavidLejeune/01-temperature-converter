@@ -1,4 +1,3 @@
-
 #!/usr/bin/env ruby
 
 require './lib/temperature_read_file.rb'
