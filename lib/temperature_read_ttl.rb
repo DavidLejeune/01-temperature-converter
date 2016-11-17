@@ -24,18 +24,45 @@ class TemperatureReadTtl
 #reading
 
 		def self.ttl_temperature
-			client = MQTT::Client.new
-			client.host = 'staging.thethingsnetwork.org'
-			client.port = '1883'
-			client.username = '70B3D57ED00012B2'
-			client.password = 'c8iuTSccnypK1eoFzEb/OoqB2FVAiFg/aEaYesnNf4w='
-			client.connect
-			# Thread.new do
-			client.get('70B3D57ED00012B2/devices/000000007DD44BFC/up') do |topic,message|
-			temp = JSON.parse(message)['fields']['temperature']
-			puts temp
-			end
-			# end
+			# Subscribe example
+
+						countCycles=0
+
+			      client = MQTT::Client.connect(
+			            :host => 'staging.thethingsnetwork.org',
+			            :port => '1883',
+			            :username => '70B3D57ED00012B2',
+			            :password => 'c8iuTSccnypK1eoFzEb/OoqB2FVAiFg/aEaYesnNf4w='
+			          ) do |c|
+			        # If you pass a block to the get method, then it will loop
+			        c.get('#') do |topic,message|
+			          obj = JSON.parse("#{message}")
+								dev_eui = obj['dev_eui']
+			          sv1 = obj['fields']['temperature']
+								countCycles = countCycles + 1
+			          #puts "#{topic}: #{message}"
+			          # another = JSON.parse("#{message}")
+			          # temps = another['fields']
+			          # read_ttl_temps = temps.select {|temp| temp['temperature'] != ''}
+			          # puts read_ttl_temps
+			          #
+			          # another = JSON.parse("#{read_ttl_temps}")
+			          # temps = another['temperature']
+			          # read_ttl_temps = temps.select {|temp| temp['temperature'] != ''}
+			          #
+			          # puts read_ttl_temps
+			          # ShowLogo.show_intro
+									# puts "output : read from ttl".white
+								  # puts "======================\n\n".white
+			          TemperatureOutput.show_output(TemperatureConvert.convert("#{sv1}"))
+								puts "-------------------------------------------------Cycle nr #{countCycles}".yellow
+								puts "------------------------------------dev_eui #{dev_eui}".magenta
+								sv1 = obj['fields']['temperature']
+								temp = "#{sv1}"
+								#client.disconnect()
+			        end
+
+			      end
 
 		end
 
