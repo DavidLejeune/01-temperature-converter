@@ -28,6 +28,7 @@ class TemperatureReadTtl
 
 			countCycles=0
 
+			Thread.new do
       client = MQTT::Client.connect(
             :host => 'staging.thethingsnetwork.org',
             :port => '1883',
@@ -54,16 +55,17 @@ class TemperatureReadTtl
           # ShowLogo.show_intro
 						# puts "output : read from ttl".white
 					  # puts "======================\n\n".white
-          TemperatureOutput.show_output(TemperatureConvert.convert("#{sv1}"))
-					puts "-------------------------------------------------Cycle nr #{countCycles}".yellow
-					puts "------------------------------------dev_eui #{dev_eui}".magenta
-					sv1 = obj['fields']['temperature']
-					temp = "#{sv1}"
+						puts "#{sv1}"
+          TemperatureConvert.convert("#{sv1}")
+					# puts "-------------------------------------------------Cycle nr #{countCycles}".yellow
+					# puts "------------------------------------dev_eui #{dev_eui}".magenta
+					# sv1 = obj['fields']['temperature']
+					# temp = "#{sv1}"
 					#client.disconnect()
         end
 
       end
-
+		end
 
 
 		end
