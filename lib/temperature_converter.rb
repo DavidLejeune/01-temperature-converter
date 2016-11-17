@@ -1,12 +1,13 @@
 #!/usr/bin/env ruby
 
 require './lib/temperature_converter_commandline.rb'
+require './lib/temperature_converter_file.rb'
 
 class TemperatureConverter
 
 
 	attr_reader :temp
-	attr_reader :origin_rb
+
 
 	def initialize
 		@temp = 0
@@ -19,7 +20,17 @@ class TemperatureConverter
 			TemperatureConverterCommandline.commandline_temperature temp
 		end
 
+		def self.file_temperature path
+			TemperatureConverterFile.file_temperature path
+		end
 
+    def self.url_temperature url
+      TemperatureConverterUrl.url_temperature url
+    end
+
+		def self.ttl_temperature origin_rb
+			TemperatureConverterTtl.ttl_temperature origin_rb
+		end
 
 
 

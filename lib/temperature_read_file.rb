@@ -1,11 +1,9 @@
 
 #!/usr/bin/env ruby
-require 'net/http'
-require 'uri'
 require './lib/temperature_convert.rb'
 require './lib/temperature_output.rb'
 
-class TemperatureReadCommandline
+class TemperatureReadFile
 
 
 	attr_reader :temp
@@ -16,11 +14,13 @@ class TemperatureReadCommandline
 
 #---------------------------------------------------------------------
 #reading
-		def self.commandline_temperature temp
-			temp = temp
-			temp
-		end
 
+
+		def self.file_temperature path
+			@path = path
+			f = File.open(path, "r")
+			temp = f.sysread(6).to_f
+		end
 
 
 end

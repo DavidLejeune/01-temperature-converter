@@ -5,7 +5,7 @@ require 'uri'
 require './lib/temperature_convert.rb'
 require './lib/temperature_output.rb'
 
-class TemperatureReadCommandline
+class TemperatureReadUrl
 
 
 	attr_reader :temp
@@ -16,11 +16,13 @@ class TemperatureReadCommandline
 
 #---------------------------------------------------------------------
 #reading
-		def self.commandline_temperature temp
-			temp = temp
-			temp
+
+		def self.url_temperature url
+			open_url(url).to_f
 		end
 
-
+		def self.open_url(url)
+			Net::HTTP.get(URI.parse(url))
+		end
 
 end

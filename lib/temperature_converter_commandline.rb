@@ -15,8 +15,6 @@ class TemperatureConverterCommandline
 #start converting by reading
 
 		def self.commandline_temperature temp
-		puts "rdl"
-		puts temp
 			TemperatureConvert.convert(TemperatureReadCommandline.commandline_temperature (temp))
 		end
 end

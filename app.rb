@@ -60,7 +60,9 @@ OptionParser.new do |opts|
     end
     puts "output : read from file".white
     puts "=======================\n\n".white
-    TemperatureConverter.file_temperature myfile
+    conversion = TemperatureConverterFile.file_temperature myfile
+
+    TemperatureOutput.show_output(conversion)
     puts '------------------------------------------------------------------'.yellow
   end
 
