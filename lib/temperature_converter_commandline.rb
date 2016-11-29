@@ -1,6 +1,6 @@
 
 #!/usr/bin/env ruby
-require './lib/temperature_read_commandline.rb'
+require 'temperature_read_commandline.rb'
 
 class TemperatureConverterCommandline
 

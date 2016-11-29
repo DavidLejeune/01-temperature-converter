@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-require './lib/temperature_convert_to_celcius.rb'
-require './lib/temperature_convert_to_fahrenheit.rb'
-require './lib/temperature_convert_to_kelvin.rb'
+require 'temperature_convert_to_celcius.rb'
+require 'temperature_convert_to_fahrenheit.rb'
+require 'temperature_convert_to_kelvin.rb'
 
 class TemperatureConvert
 

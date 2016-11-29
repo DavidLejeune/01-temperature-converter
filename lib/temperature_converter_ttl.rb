@@ -1,6 +1,6 @@
 
 #!/usr/bin/env ruby
-require './lib/temperature_read_ttl.rb'
+require 'temperature_read_ttl.rb'
 
 class TemperatureConverterTtl
 

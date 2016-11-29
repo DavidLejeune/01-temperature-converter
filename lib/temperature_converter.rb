@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
-require './lib/temperature_converter_commandline.rb'
-require './lib/temperature_converter_file.rb'
-require './lib/temperature_converter_url.rb'
-require './lib/temperature_converter_ttl.rb'
+require 'temperature_converter_commandline.rb'
+require 'temperature_converter_file.rb'
+require 'temperature_converter_url.rb'
+require 'temperature_converter_ttl.rb'
 
 class TemperatureConverter
 

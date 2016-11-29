@@ -2,9 +2,9 @@
 #!/usr/bin/env ruby
 require 'net/http'
 require 'uri'
-require './lib/temperature_convert.rb'
-require './lib/temperature_output.rb'
-require './lib/show_logo.rb'
+require 'temperature_convert.rb'
+require 'temperature_output.rb'
+require 'show_logo.rb'
 require 'rubygems'
 require 'mqtt'
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-require './lib/temperature_output_to_html.rb'
-require './lib/temperature_output_to_json.rb'
-require './lib/temperature_output_to_text.rb'
+require 'temperature_output_to_html.rb'
+require 'temperature_output_to_json.rb'
+require 'temperature_output_to_text.rb'
 
 class TemperatureOutput
 
