@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'temperature_converter_DaLe'
-  s.version     = '1.0.1'
-  s.date        = '2016-11-18'
+  s.version     = '1.0.2'
+  s.date        = '2016-11-29'
   s.summary     = "Temp converter"
   s.description = "Converter cecius to fahrenheit and kelvin"
   s.authors     = ["David Lejeune"]
