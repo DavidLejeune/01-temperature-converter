@@ -3,7 +3,7 @@
 ***
 
 ## Description
-Ruby to to convert a Celcius temperature , given by 4 different methods , to Fahrenheit and Kelvin from a terminal app.
+Ruby app to convert a Celcius temperature , given by 4 different methods , to Fahrenheit and Kelvin from a terminal app.
 
 
 There a 4 different ways to give/get a Celcius value to be converted :
@@ -31,7 +31,7 @@ All temperature conversions need at least 1 output option !
 - To show the text output only : `-t`
 - To show the JSON output only : `-j`
 - To show the HTML output only : `-w`
-- To show the all output       : `-a`
+- To show all the above output : `-a`
 
 #### Commandline temperature
 ```Powershell
@@ -120,10 +120,8 @@ Temperature
 ------------------------------------------------------------------
 ```
 ***
-What your project does
-How to install it
-Example usage
-How to set up the dev environment
-How to ship a change
-Change log
-License and author info
+## About
+### The app
+This app was created for the course Software Engineering @ Vives Hogeschool Oostende , class 3PB-ICT
+### The author
+![sexy boy](https://nl.gravatar.com/userimage/28659207/214a41cfdc1633b1670b1a2bd131142f.jpeg "Witness me ...")
