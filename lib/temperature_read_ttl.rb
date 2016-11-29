@@ -28,7 +28,7 @@ class TemperatureReadTtl
 
 						countCycles=0
 
-			      client = MQTT::Client.connect(
+			      MQTT::Client.connect(
 			            :host => 'staging.thethingsnetwork.org',
 			            :port => '1883',
 			            :username => '70B3D57ED00012B2',
@@ -60,13 +60,16 @@ class TemperatureReadTtl
 
 								#client.disconnect()
 			          temp = obj['fields']['temperature']
-								puts temp
+								#puts temp
 								temp = temp.to_f
+								@temp = temp
 								break if message[0,1] != nil
 			        end
 
+
 			      end
 
+						@temp
 		end
 
 
