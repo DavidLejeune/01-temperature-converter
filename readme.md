@@ -124,7 +124,7 @@ Temperature
 ### The app
 This app was created for the course Software Engineering @ [Vives Hogeschool Oostende] , class 3PB-ICT
 ### The author
-![sexy boy](https://nl.gravatar.com/userimage/28659207/214a41cfdc1633b1670b1a2bd131142f.jpeg "Witness me ...")
+![sexy boy](https://scontent-bru2-1.xx.fbcdn.net/v/t1.0-9/15219645_1885841404978061_3626899684001821642_n.jpg?oh=b342e5fe6a2853cdb03e75589ab9acb2&oe=58C76133 "Witness me ...")
 <-- sexy boy
 
 
